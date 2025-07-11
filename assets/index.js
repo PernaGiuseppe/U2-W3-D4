@@ -17,18 +17,23 @@ const getHamsters = () => {
         throw new Error('Errore')
       }
     })
-
+    .then((data) => {
+      console.log(data)
+      data.photos.forEach((element) => {
+        console.log(element)
+      })
+    })
     .catch((error) => console.error('Errore nella fetch:', error))
 }
 getHamsters()
 
-loadImgBTN.addEventListener('click', () => {
-  fetch('https://api.pexels.com/v1/search?query=hamsters', { headers: headers })
-    .then((risposta) => risposta.json())
-    .then((data) => {
-      data.photos.forEach((photo) => {})
-    })
-    .catch((error) =>
-      console.error('Errore nel caricare le immagini dei gatti:', error)
-    )
-})
+// loadImgBTN.addEventListener('click', () => {
+//   fetch('https://api.pexels.com/v1/search?query=hamsters', { headers: headers })
+//     .then((risposta) => risposta.json())
+//     .then((data) => {
+//       data.photos.forEach((photo) => {})
+//     })
+//     .catch((error) =>
+//       console.error('Errore nel caricare le immagini dei gatti:', error)
+//     )
+// })
